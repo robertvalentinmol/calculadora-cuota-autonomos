@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Cuota Autónomo 2026 | Tabla oficial 15 tramos</title>
+  <meta name="description" content="Calcula tu cuota de autónomo 2026 al instante. Tabla oficial de la Seguridad Social con los 15 tramos, MEI 0,9% incluido. Actualizada con la Orden PJC/297/2026.">
+  <meta name="keywords" content="calculadora cuota autónomo 2026, cuota autónomos 2026, tramos cotización autónomos, seguridad social autónomos">
+  <meta property="og:title" content="Calculadora Cuota Autónomo 2026">
+  <meta property="og:description" content="Descubre cuánto pagas de autónomo en 2026. 15 tramos oficiales, MEI incluido.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #080E1A;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 60px;
+      color: #C8D0DC;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      width: 100%;
+      max-width: 1100px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .site-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: #A8FF3E;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .site-title {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .site-title em { font-style: normal; color: #A8FF3E; }
+    .site-desc { font-size: 14px; color: #3A4458; line-height: 1.6; }
+
+    /* ── PAGE LAYOUT: calculadora + leyenda lado a lado ── */
+    .page-layout {
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: 700px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: #0F1521;
+      border: 1px solid #1E2736;
+      border-radius: 20px;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .card-top { padding: 32px 36px 0; }
+    .card-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: #A8FF3E;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+      line-height: 1.25;
+    }
+    .card-sub { font-size: 12px; color: #3A4458; margin-bottom: 28px; }
+
+    /* ── BODY GRID ── */
+    .card-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0 36px 32px;
+    }
+    .col-left { padding-right: 28px; border-right: 1px solid #1E2736; }
+    .col-right { padding-left: 28px; }
+
+    /* ── FIELD ── */
+    .field { margin-bottom: 24px; }
+    .field-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      color: #3A4458;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+    .big-amount {
+      font-size: 38px;
+      font-weight: 900;
+      color: #FFFFFF;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .big-amount span { font-size: 18px; font-weight: 500; color: #3A4458; margin-left: 3px; }
+
+    input[type=range].slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 3px;
+      background: #1A2332;
+      border-radius: 2px;
+      outline: none;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    input[type=range].slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px; height: 20px;
+      background: #A8FF3E;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 0 5px rgba(168,255,62,0.12);
+      transition: box-shadow 0.15s;
+    }
+    input[type=range].slider::-webkit-slider-thumb:hover { box-shadow: 0 0 0 7px rgba(168,255,62,0.2); }
+    input[type=range].slider::-moz-range-thumb {
+      width: 20px; height: 20px;
+      background: #A8FF3E;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+    .range-labels { display: flex; justify-content: space-between; font-size: 10px; color: #2A3448; }
+
+    /* ── TIPO TOGGLE ── */
+    .tipo-group { display: flex; gap: 6px; }
+    .tipo-btn {
+      flex: 1;
+      padding: 10px 8px;
+      font-size: 11px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      border: 1px solid #1E2736;
+      border-radius: 10px;
+      background: transparent;
+      color: #3A4458;
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .tipo-btn .tipo-sub { display: block; font-size: 9px; font-weight: 400; opacity: 0.6; margin-top: 2px; }
+    .tipo-btn.active { background: rgba(168,255,62,0.08); border-color: rgba(168,255,62,0.4); color: #A8FF3E; }
+    .tipo-btn:hover:not(.active) { border-color: #2A3448; color: #5A6478; }
+
+    /* ── NETO NOTE ── */
+    .neto-note {
+      font-size: 11px;
+      color: #3A4458;
+      line-height: 1.7;
+      border-top: 1px solid #1A2332;
+      padding-top: 12px;
+      margin-top: 4px;
+    }
+    .neto-note strong { color: #C8D0DC; font-weight: 600; }
+
+    /* ── RESULT ── */
+    .result-label { font-size: 10px; font-weight: 600; color: #3A4458; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .result-main {
+      font-size: 58px;
+      font-weight: 900;
+      color: #A8FF3E;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .result-main span { font-size: 28px; font-weight: 600; opacity: 0.7; }
+    .result-sub { font-size: 10px; color: #3A4458; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+
+    /* ── PILLS ── */
+    .pills { display: flex; gap: 6px; margin-bottom: 18px; }
+    .pill {
+      flex: 1;
+      background: #131C2B;
+      border: 1px solid #1A2332;
+      border-radius: 8px;
+      padding: 10px 10px 8px;
+    }
+    .pill-label { font-size: 9px; font-weight: 600; color: #2A3448; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .pill-val { font-size: 14px; font-weight: 700; color: #8A96A8; }
+
+    /* ── BARS ── */
+    .bars-label { font-size: 10px; font-weight: 600; color: #2A3448; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .bars { display: flex; gap: 3px; align-items: flex-end; height: 44px; }
+    .bar { flex: 1; border-radius: 3px 3px 0 0; background: #1A2332; transition: background 0.2s; }
+    .bar.active { background: #A8FF3E; }
+    .bar.past   { background: rgba(168,255,62,0.18); }
+    .tramo-name { font-size: 11px; color: #A8FF3E; font-weight: 600; margin-top: 7px; }
+    .tramo-tabla { font-size: 10px; color: #3A4458; margin-top: 2px; }
+
+    /* ── TÉRMINOS CLICABLES en la calculadora ── */
+    .term-link {
+      color: #A8FF3E;
+      cursor: pointer;
+      border-bottom: 1px dashed rgba(168,255,62,0.35);
+      transition: border-color 0.15s, opacity 0.15s;
+      white-space: nowrap;
+    }
+    .term-link:hover { border-bottom-color: #A8FF3E; opacity: 0.8; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 0 36px 28px; display: flex; flex-direction: column; gap: 10px; }
+    .cta-block {
+      background: #131C2B;
+      border: 1px solid #1A2332;
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .cta-text p:first-child { font-size: 12px; font-weight: 600; color: #C8D0DC; margin-bottom: 3px; }
+    .cta-text p:last-child  { font-size: 11px; color: #3A4458; }
+    .cta-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      background: #A8FF3E;
+      color: #0F1521;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 18px;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .cta-btn:active { transform: translateY(0); }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      padding: 16px 36px 28px;
+      font-size: 10px;
+      color: #1E2736;
+      line-height: 1.6;
+      border-top: 1px solid #131C2B;
+    }
+
+    /* ── LEYENDA LATERAL ── */
+    .leyenda-panel {
+      background: #0A1018;
+      border: 1px solid #1A2332;
+      border-radius: 16px;
+      padding: 20px;
+      position: sticky;
+      top: 24px;
+    }
+    .leyenda-titulo {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #3A4458;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .leyenda-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #131C2B;
+      transition: background 0.2s;
+      border-radius: 6px;
+      padding-left: 8px;
+      padding-right: 8px;
+      margin: 0 -8px;
+    }
+    .leyenda-item:last-child { border-bottom: none; }
+    .leyenda-item.highlighted {
+      background: rgba(168,255,62,0.05);
+      border-bottom-color: rgba(168,255,62,0.1);
+    }
+    .leyenda-term {
+      font-size: 11px;
+      font-weight: 700;
+      color: #A8FF3E;
+      margin-bottom: 5px;
+    }
+    .leyenda-def {
+      font-size: 11px;
+      color: #3A4458;
+      line-height: 1.65;
+    }
+    .leyenda-def strong { color: #5A6A80; font-weight: 500; }
+
+    /* ── FOOTER ── */
+    .site-footer { margin-top: 24px; font-size: 11px; color: #1E2736; text-align: center; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .page-layout { grid-template-columns: 1fr; }
+      .leyenda-panel { position: static; }
+    }
+    @media (max-width: 560px) {
+      body { padding: 24px 12px 48px; }
+      .card-top { padding: 24px 20px 0; }
+      .card-body { grid-template-columns: 1fr; padding: 0 20px 24px; }
+      .col-left { border-right: none; border-bottom: 1px solid #1E2736; padding-right: 0; padding-bottom: 24px; margin-bottom: 24px; }
+      .col-right { padding-left: 0; }
+      .result-main { font-size: 48px; }
+      .cta-section { padding: 0 20px 24px; }
+      .cta-block { flex-direction: column; align-items: flex-start; }
+      .disclaimer { padding: 16px 20px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <h1 class="site-title">Cuota de autónomo <em>2026</em></h1>
+    <p class="site-desc">Calcula lo que pagas cada mes en segundos. Tabla oficial · 15 tramos · MEI 0,9% incluido.</p>
+  </header>
+
+  <div class="page-layout">
+
+    <!-- ══ CALCULADORA ══ -->
+    <main class="card" role="main">
+      <div class="card-top">
+        <p class="card-eyebrow">Seguridad Social · España · Orden PJC/297/2026</p>
+        <h2 class="card-title">Calculadora de cuota de autónomo</h2>
+        <p class="card-sub">Introduce tus ingresos y obtén tu tramo y cuota al instante. Pulsa los términos en <span style="color:#A8FF3E">verde</span> para ver su explicación.</p>
+      </div>
+
+      <div class="card-body">
+        <!-- Columna izquierda -->
+        <div class="col-left">
+          <div class="field">
+            <label class="field-label" for="sliderBruto">
+              <span class="term-link" onclick="showTerm('ingresos-brutos')">Ingresos brutos mensuales</span>
+            </label>
+            <div class="big-amount" id="dispBruto">1.500 <span>€/mes</span></div>
+            <input type="range" class="slider" id="sliderBruto" min="0" max="7000" step="50" value="1500" aria-label="Ingresos brutos mensuales">
+            <div class="range-labels"><span>0 €</span><span>3.500 €</span><span>7.000 €</span></div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Tipo de autónomo</label>
+            <div class="tipo-group" role="group" aria-label="Tipo de autónomo">
+              <button class="tipo-btn active" data-tipo="fisica" onclick="setTipo(this)">
+                Persona física
+                <span class="tipo-sub">−7% gastos genéricos</span>
+              </button>
+              <button class="tipo-btn" data-tipo="societario" onclick="setTipo(this)">
+                Societario
+                <span class="tipo-sub">−3% gastos genéricos</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="neto-note" id="netoNote" aria-live="polite"></div>
+        </div>
+
+        <!-- Columna derecha -->
+        <div class="col-right">
+          <div class="result-label">
+            <span class="term-link" onclick="showTerm('cuota-minima')">Cuota mínima mensual</span>
+          </div>
+          <div class="result-main" id="dispCuota" aria-live="polite">— <span>€</span></div>
+          <div class="result-sub">Cotizando por <span class="term-link" onclick="showTerm('base-cotizacion')" style="font-size:inherit;text-transform:uppercase;letter-spacing:inherit">base mínima</span></div>
+
+          <div class="pills">
+            <div class="pill">
+              <div class="pill-label"><span class="term-link" onclick="showTerm('cuota-maxima')" style="font-size:inherit;letter-spacing:inherit;text-transform:uppercase">Máx. posible</span></div>
+              <div class="pill-val" id="dispMax">—</div>
+            </div>
+            <div class="pill">
+              <div class="pill-label">Coste anual</div>
+              <div class="pill-val" id="dispAnual">—</div>
+            </div>
+            <div class="pill">
+              <div class="pill-label"><span class="term-link" onclick="showTerm('mei')" style="font-size:inherit;letter-spacing:inherit;text-transform:uppercase">MEI / mes</span></div>
+              <div class="pill-val" id="dispMei">—</div>
+            </div>
+          </div>
+
+          <div class="bars-label">Tu posición en los <span class="term-link" onclick="showTerm('tramo')" style="font-size:inherit;letter-spacing:inherit;text-transform:uppercase">15 tramos</span></div>
+          <div class="bars" id="barsEl" aria-hidden="true"></div>
+          <div class="tramo-name" id="tramoName" aria-live="polite"></div>
+          <div class="tramo-tabla" id="tramoTabla"></div>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <div class="cta-block">
+          <div class="cta-text">
+            <p>¿Cansado de perder horas con facturas e impuestos?</p>
+            <p>Software de facturación para autónomos, sin complicaciones</p>
+          </div>
+          <!-- PENDIENTE: sustituir por tu enlace de Awin cuando lo tengas -->
+          <a href="https://www.awin.com" target="_blank" rel="noopener sponsored" class="cta-btn">Probar gratis →</a>
+        </div>
+        <div class="cta-block">
+          <div class="cta-text">
+            <p>Gestoría online para autónomos desde 19 €/mes</p>
+            <p>IVA, IRPF y cuota gestionados por expertos fiscales</p>
+          </div>
+          <a href="https://getquipu.com/?via=robert" target="_blank" rel="noopener sponsored" class="cta-btn">Ver Quipu →</a>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        Herramienta orientativa. Los rendimientos netos se estiman aplicando la deducción por gastos genéricos (7% personas físicas, 3% autónomos societarios). Tu gestor puede calcular el tramo exacto con tus gastos reales. Fuente: Orden PJC/297/2026 (BOE-A-2026-7296). No constituye asesoramiento fiscal ni legal.
+      </div>
+    </main>
+
+    <!-- ══ LEYENDA LATERAL ══ -->
+    <aside class="leyenda-panel" aria-label="Glosario de términos">
+      <p class="leyenda-titulo">¿Qué significa cada dato?</p>
+
+      <div class="leyenda-item" id="term-ingresos-brutos">
+        <p class="leyenda-term">Ingresos brutos mensuales</p>
+        <p class="leyenda-def">El total que cobras a tus clientes cada mes <strong>antes</strong> de descontar gastos ni impuestos. Si emites facturas por 2.000 €, ese es tu ingreso bruto.</p>
+      </div>
+
+      <div class="leyenda-item" id="term-rendimientos-netos">
+        <p class="leyenda-term">Rendimientos netos</p>
+        <p class="leyenda-def">Lo que queda tras restar tus gastos reales de actividad. La SS aplica además una deducción extra del <strong>7%</strong> (persona física) o <strong>3%</strong> (societario) por gastos genéricos.</p>
+      </div>
+
+      <div class="leyenda-item" id="term-tramo">
+        <p class="leyenda-term">Tramo de cotización</p>
+        <p class="leyenda-def">El sistema divide los rendimientos netos en <strong>15 rangos</strong>. Según en cuál encajas, pagas una cuota diferente. Puedes cambiar de tramo hasta <strong>6 veces al año</strong>.</p>
+      </div>
+
+      <div class="leyenda-item" id="term-cuota-minima">
+        <p class="leyenda-term">Cuota mínima mensual</p>
+        <p class="leyenda-def">Lo mínimo que pagarás a la Seguridad Social si eliges la <strong>base mínima</strong> de tu tramo. Es lo que hace la mayoría de autónomos.</p>
+      </div>
+
+      <div class="leyenda-item" id="term-cuota-maxima">
+        <p class="leyenda-term">Cuota máxima posible</p>
+        <p class="leyenda-def">Si cotizas por la <strong>base máxima</strong> pagas más ahora, pero acumulas más derechos de cara a la pensión o al paro de autónomo.</p>
+      </div>
+
+      <div class="leyenda-item" id="term-base-cotizacion">
+        <p class="leyenda-term">Base de cotización</p>
+        <p class="leyenda-def">La cifra sobre la que se calcula tu cuota. Dentro de cada tramo puedes elegir entre la base mínima y la máxima según tu situación.</p>
+      </div>
+
+      <div class="leyenda-item" id="term-mei">
+        <p class="leyenda-term">MEI</p>
+        <p class="leyenda-def">Mecanismo de Equidad Intergeneracional. Un pequeño extra para reforzar las pensiones futuras. En 2026 es el <strong>0,9%</strong> de tu base. Ya está incluido en los importes que ves.</p>
+      </div>
+
+      <div class="leyenda-item" id="term-tabla">
+        <p class="leyenda-term">Tabla reducida / general</p>
+        <p class="leyenda-def">Los 15 tramos se agrupan en dos bloques. <strong>Tabla reducida</strong> (1–6): ingresos por debajo del SMI. <strong>Tabla general</strong> (7–15): a partir de ~1.700 €/mes netos.</p>
+      </div>
+
+    </aside>
+
+  </div><!-- /page-layout -->
+
+  <footer class="site-footer">
+    <p>Datos actualizados · Orden PJC/297/2026 · MEI 0,9%</p>
+  </footer>
+
+  <script>
+    const TRAMOS = [
+      { label:"Tramo 1",  tabla:"Tabla reducida", max:670,      baseMin:735.29,  cuotaMin:200, cuotaMax:262  },
+      { label:"Tramo 2",  tabla:"Tabla reducida", max:900,      baseMin:816.99,  cuotaMin:225, cuotaMax:289  },
+      { label:"Tramo 3",  tabla:"Tabla reducida", max:1166.7,   baseMin:898.69,  cuotaMin:250, cuotaMax:375  },
+      { label:"Tramo 4",  tabla:"Tabla reducida", max:1300,     baseMin:950,     cuotaMin:267, cuotaMax:418  },
+      { label:"Tramo 5",  tabla:"Tabla reducida", max:1500,     baseMin:960,     cuotaMin:291, cuotaMax:482  },
+      { label:"Tramo 6",  tabla:"Tabla reducida", max:1700,     baseMin:960,     cuotaMin:294, cuotaMax:546  },
+      { label:"Tramo 7",  tabla:"Tabla general",  max:1850,     baseMin:1013.07, cuotaMin:310, cuotaMax:595  },
+      { label:"Tramo 8",  tabla:"Tabla general",  max:2030,     baseMin:1209.15, cuotaMin:380, cuotaMax:653  },
+      { label:"Tramo 9",  tabla:"Tabla general",  max:2330,     baseMin:1425.75, cuotaMin:435, cuotaMax:749  },
+      { label:"Tramo 10", tabla:"Tabla general",  max:2760,     baseMin:1461,    cuotaMin:445, cuotaMax:888  },
+      { label:"Tramo 11", tabla:"Tabla general",  max:3190,     baseMin:1731.03, cuotaMin:530, cuotaMax:1027 },
+      { label:"Tramo 12", tabla:"Tabla general",  max:3620,     baseMin:1731.03, cuotaMin:530, cuotaMax:1165 },
+      { label:"Tramo 13", tabla:"Tabla general",  max:4050,     baseMin:1788.07, cuotaMin:548, cuotaMax:1303 },
+      { label:"Tramo 14", tabla:"Tabla general",  max:6000,     baseMin:1875.03, cuotaMin:574, cuotaMax:1332 },
+      { label:"Tramo 15", tabla:"Tabla general",  max:Infinity, baseMin:1928.1,  cuotaMin:590, cuotaMax:1332 },
+    ];
+
+    const BAR_H = [16,18,20,22,25,28,30,34,38,42,48,52,56,60,64];
+    let tipo = "fisica";
+
+    /* Resaltar término en la leyenda lateral */
+    function showTerm(id) {
+      document.querySelectorAll('.leyenda-item').forEach(el => el.classList.remove('highlighted'));
+      const target = document.getElementById('term-' + id);
+      if (!target) return;
+      target.classList.add('highlighted');
+      target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function setTipo(btn) {
+      document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      tipo = btn.dataset.tipo;
+      calcular();
+    }
+
+    function fmt(n) { return Math.round(n).toLocaleString('es-ES'); }
+
+    function calcular() {
+      const bruto = parseInt(document.getElementById('sliderBruto').value);
+      const desc  = tipo === "fisica" ? 0.07 : 0.03;
+      const neto  = Math.round(bruto * (1 - desc));
+
+      document.getElementById('dispBruto').innerHTML = fmt(bruto) + ' <span>€/mes</span>';
+
+      const idx = TRAMOS.findIndex(t => neto <= t.max);
+      const ti  = idx === -1 ? TRAMOS.length - 1 : idx;
+      const t   = TRAMOS[ti];
+
+      document.getElementById('dispCuota').innerHTML  = fmt(t.cuotaMin) + ' <span>€</span>';
+      document.getElementById('dispMax').textContent   = fmt(t.cuotaMax) + ' €';
+      document.getElementById('dispAnual').textContent = fmt(t.cuotaMin * 12) + ' €';
+      document.getElementById('dispMei').textContent   = '+' + Math.round(t.baseMin * 0.009) + ' €';
+
+      const pct = (desc * 100).toFixed(0);
+      document.getElementById('netoNote').innerHTML =
+        `<span class="term-link" onclick="showTerm('rendimientos-netos')">Rendimientos netos</span> estimados: <strong>${fmt(neto)} €/mes</strong><br>` +
+        `(${fmt(bruto)} € − ${pct}% de deducción genérica)<br>` +
+        `<span class="term-link" onclick="showTerm('base-cotizacion')">Base mínima de cotización</span>: <strong>${fmt(t.baseMin)} €</strong><br>` +
+        `Puedes cambiar de <span class="term-link" onclick="showTerm('tramo')">tramo</span> hasta <strong>6 veces al año</strong>.`;
+
+      const barsEl = document.getElementById('barsEl');
+      barsEl.innerHTML = '';
+      TRAMOS.forEach((_, i) => {
+        const bar = document.createElement('div');
+        bar.className = 'bar' + (i === ti ? ' active' : i < ti ? ' past' : '');
+        bar.style.height = BAR_H[i] + 'px';
+        barsEl.appendChild(bar);
+      });
+
+      document.getElementById('tramoName').textContent  = t.label;
+      document.getElementById('tramoTabla').textContent = t.tabla + ' · ' + (ti + 1) + '/15';
+    }
+
+    document.getElementById('sliderBruto').addEventListener('input', calcular);
+    calcular();
+  </script>
+</body>
+</html>
